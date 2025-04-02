@@ -1,10 +1,9 @@
-#include "Globals.h"
 #include "../src/Globals.h"
 #include <raylib.h>
 
 
 
-Globals::Globals() { InitGame(); }
+Globals::Globals() { InitGame(); currentState = MAIN_MENU; }
 
 void Globals::InitGame() {
 
@@ -12,7 +11,7 @@ void Globals::InitGame() {
 	gameOver = false;
 	pause = false;
 	victory = false;
-	main_menu = true;
+	
 
 	score = 0;
 	highscore = 0;
@@ -23,13 +22,17 @@ void Globals::InitGame() {
 
 }
 
-void Globals::UpdateDrawFrame() {
+void Globals::UpdateGame() {
+
+}
+
+void Globals::DrawGame() {
 	BeginDrawing();
-	ClearBackground(RAYWHITE);
-	DrawText("Hola, Raylib!", 10, 10, 20, DARKGRAY);
+	ClearBackground(WHITE);
 	EndDrawing();
 }
 
-void Globals::UnloadGame() {
-	// texuras
+void Globals::UpdateDrawFrame() {
+	UpdateGame();
+	DrawGame();
 }

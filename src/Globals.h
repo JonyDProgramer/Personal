@@ -1,7 +1,6 @@
 #pragma once
 
 
-
 class Globals
 {
 public:
@@ -11,18 +10,20 @@ public:
 	void InitGame();
 	void UpdateGame();
 	void DrawGame();
-	void UnloadGame();
 	void UpdateDrawFrame();
 
 	static constexpr int screenWidth = 840;
 	static constexpr int screenHeight = 1080;
+
+	enum GameState { MAIN_MENU, PLAYING, GAME_OVER, VICTORY };
+	GameState currentState;
 
 private:
 
 	bool gameOver;
 	bool pause;
 	bool victory;
-	bool main_menu;
+	
 
 	int score;
 	int highscore;
